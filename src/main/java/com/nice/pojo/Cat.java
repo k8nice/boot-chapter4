@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 猫的实现类
+ *
  * @author ningh
  */
 @Component
@@ -13,6 +14,6 @@ import org.springframework.stereotype.Component;
 public class Cat implements Animal {
     @Override
     public void use() {
-        System.out.println("猫["+Cat.class.getSimpleName()+"]是抓老鼠");
+        System.out.println("猫[" + Cat.class.getSimpleName() + "]是抓老鼠");
     }
 }

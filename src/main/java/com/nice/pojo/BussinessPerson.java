@@ -15,11 +15,11 @@ import javax.annotation.PreDestroy;
 
 /**
  * 人物实现类
+ *
  * @author ningh
  */
 @Component
 public class BussinessPerson implements Person, BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
-
 
 
     @Autowired(required = false)
@@ -32,7 +32,8 @@ public class BussinessPerson implements Person, BeanNameAware, BeanFactoryAware,
         this.animal.use();
     }
 
-    @Autowired @Qualifier("dog")
+    @Autowired
+    @Qualifier("dog")
     @Override
     public void setAnimal(Animal animal) {
         System.out.println("延迟依赖注入");
@@ -41,36 +42,36 @@ public class BussinessPerson implements Person, BeanNameAware, BeanFactoryAware,
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("["+this.getClass().getSimpleName()+"] 调用BeanFactoryAware的setBeanFactory");
+        System.out.println("[" + this.getClass().getSimpleName() + "] 调用BeanFactoryAware的setBeanFactory");
     }
 
     @Override
     public void setBeanName(String s) {
-        System.out.println("["+this.getClass().getSimpleName()+"]调用BeanNameAware的setBeanName");
+        System.out.println("[" + this.getClass().getSimpleName() + "]调用BeanNameAware的setBeanName");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("["+this.getClass().getSimpleName()+"] DisposableBean方法");
+        System.out.println("[" + this.getClass().getSimpleName() + "] DisposableBean方法");
     }
 
     @PreDestroy
-    public void destory1(){
-        System.out.println("["+this.getClass().getSimpleName()+"] 注解PreDestroy定义的自定义的销毁方法");
+    public void destory1() {
+        System.out.println("[" + this.getClass().getSimpleName() + "] 注解PreDestroy定义的自定义的销毁方法");
     }
 
     @PostConstruct
-    public void init(){
-        System.out.println("["+this.getClass().getSimpleName()+"] 注解@PostConstruct定义的自定义初始化方法");
+    public void init() {
+        System.out.println("[" + this.getClass().getSimpleName() + "] 注解@PostConstruct定义的自定义初始化方法");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("["+this.getClass().getSimpleName()+"] 调用InitializingBean的afterPropertiesSet方法");
+        System.out.println("[" + this.getClass().getSimpleName() + "] 调用InitializingBean的afterPropertiesSet方法");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("["+this.getClass().getSimpleName()+"] 调用ApplicationContextAware的setApplicationContext");
+        System.out.println("[" + this.getClass().getSimpleName() + "] 调用ApplicationContextAware的setApplicationContext");
     }
 }

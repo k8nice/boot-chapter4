@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 狗的实现类
+ *
  * @author ningh
  */
 @Component
